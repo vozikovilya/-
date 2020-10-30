@@ -1,10 +1,12 @@
+// Burger Menu
+
 $(document).ready(function() {
   $('.header__burger').click(function(event) {
     $('.header__burger,.nav__list').toggleClass('active');
   });
 });
 
-
+// Swiper
 
 var mySwiper = new Swiper('.swiper-container', {
     pagination: {
@@ -18,6 +20,7 @@ var mySwiper = new Swiper('.swiper-container', {
     },
 });
 
+// Accordion
 
 $( "#accordion" ).accordion({
   collapsible: true,

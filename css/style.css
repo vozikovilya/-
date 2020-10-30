@@ -1113,8 +1113,8 @@ img {
     }
 }
 
-/* 576px */
-
+/* 576px  Mobile  */
+ 
 @media (max-width: 576px) {
     .wrapper {
         padding: 0 15px;
