@@ -22,8 +22,18 @@ var mySwiper = new Swiper('.swiper-container', {
 
 // Accordion
 
-$( "#accordion" ).accordion({
-  collapsible: true,
-  icons: false,
+var acc = document.getElementsByClassName("accordion__btn");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var accordion__panel = this.nextElementSibling;
+    if (accordion__panel.style.maxHeight){
+      accordion__panel.style.maxHeight = null;
+    } else {
+      accordion__panel.style.maxHeight = accordion__panel.scrollHeight + "px";
+    } 
+  });
 }
-);
+

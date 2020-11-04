@@ -555,80 +555,38 @@ img {
 
 /* SECTION_FOURTH */
 
-.section-fourt__list {
+.section-fourt__accordion {
     margin-top: 50px;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 16px;
 }
 
-.section-fourt__item {
+.accordion__item {
     padding: 30px 0;
     border-top: 1px solid var(--gray25);
 }
 
-.section-fourt__item:last-child {
+.accordion__item:last-child {
     border-bottom: 1px solid var(--gray25);
 }
 
-.ui-state-active {
-    border: none;
-    background-color: initial;
-}
-
-.ui-state-active.section-fourt__btn::after {
-    transform: rotate(45deg);
-}
-
-.ui-accordion .ui-accordion-header.ui-state-active {
-    padding: 0 0 10px 0;
-}
-
-.ui-state-default {
-    border: none;
-    background-color: initial;
-}
-
-.ui-accordion .ui-accordion-header {
+.accordion__btn  {
     display: flex;
-    padding: 0;
-    margin: 0;
-    font-size: 24px;
-}
-
-.ui-accordion .ui-accordion-content {
-    padding: 0;
-}
-
-.ui-widget-content {
-    border: none;
-}
-
-.item_gray {
-    color: var(--gray25);
-}
-
-.section-fourt__btn {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 100%;
     background-color: inherit;
-    text-align: start;
+    color: var(--gray7);
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
     transition: 0.4s;
 }
 
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-}
-
-.section-fourt__btn:hover,
-.section-fourt__btn:focus {
+.active, .accordion__btn:hover {
     color: var(--orange1);
 }
 
-.section-fourt__btn::after {
+.accordion__btn:after {
     content: '';
     width: 50px;
     height: 50px;
@@ -636,13 +594,24 @@ img {
     background-size: cover;
     background-repeat: no-repeat;
     flex-shrink: 0;
+    margin-left: 30px;
     transform:rotate(0deg);
     transition: 0.4s;
 }
 
-.section-fourt__btn:hover::after,
-.section-fourt__btn:focus::after {
+.active:after {
     background-image: url(../img/icons/Add_hover.svg);
+    transform:rotate(45deg);
+}
+
+.accordion__panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.item_gray {
+    color: var(--gray25);
 }
 
 /* FOOTER */
@@ -888,26 +857,38 @@ img {
     }
 
     .header__nav {
-        min-width: 0;
-        margin-left: 0;
+        position: absolute;
+        min-width: 100%;
+        min-height: 500px;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        visibility: hidden;
+        pointer-events: none;
+        opacity: 0;
     }
     
     .nav__list {
         position: absolute;
-        top: 0;
         left: -100%;
-        z-index: 3;
         justify-content: space-around;
         flex-direction: column;
         min-width: 30%;
-        min-height: 500px;
+        min-height: 100%;
         padding-top: 100px;
         background-color: var(--white1);
         box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+        z-index: 3;
         transition: 0.4s;
     }
 
-    .nav__list.active {
+    .header__nav.active {
+        visibility: visible;
+        pointer-events: initial;
+        opacity: 1;
+    }
+
+    .header__nav.active .nav__list {
         left: 0;
     }
 
@@ -1151,19 +1132,13 @@ img {
     }
 
     .nav__list {
-        width: 40%;
-        top: -100%;
         left: auto;
-        right: 0;
-        margin-left: 0;
-        min-height: 300px;
-        align-items: flex-start;
+        right: -100%;
     }
     
-    .nav__list.active {
-        top: 0;
+    .header__nav.active .nav__list {
         left: auto;
-        padding: 45px 0 10px 25px;
+        right: 0;
     }
 
     .section-first {
@@ -1347,27 +1322,23 @@ img {
         margin-top: 30px;
     }
 
-    .section-fourt__list {
+    .section-fourt__accordion {
         margin-top: 20px;
     }
 
-    .section-fourt__item {
+    .accordion__item {
         padding: 20px 0;
-        height: 100%;
     }
 
-    .section-fourt__btn.title-h3 {
+    .accordion__btn {
         font-size: 16px;
+        line-height: 30px;
     }
 
-    .section-fourt__btn::after {
+    .accordion__btn::after {
         width: 30px;
         height: 30px;
         margin-left: 30px;
-    }
-
-    .ui-accordion .ui-accordion-header {
-        font-size: 14px;
     }
 
     .footer {
