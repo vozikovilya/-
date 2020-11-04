@@ -256,11 +256,17 @@ img {
     background-color: var(--white1);
 }
 
-.section-first__title {
-    max-width:  840px;
-    position: relative;
-    pointer-events: none;
+.section-first__content {
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1;
+    max-height: 100%;
+    padding: 5%;
+}
+
+.section-first__title {
+    pointer-events: none;
 }
 
 .title-h1 {
@@ -275,7 +281,6 @@ img {
     margin-top: 32px;
     position: relative;
     pointer-events: none;
-    z-index: 1;
 }
 
 .subtitle-h1 {
@@ -289,7 +294,6 @@ img {
     text-align: center;
     margin-top: 110px;
     position: relative;
-    z-index: 1;
 }
 
 .btn-calc {
@@ -902,7 +906,6 @@ img {
     }
 
     .section-first {
-        min-height: 100%;
         padding: 100px 45px;
     }
 
@@ -1132,10 +1135,10 @@ img {
     }
 
     .nav__list {
-        left: auto;
+        left: 0;
         right: -100%;
     }
-    
+
     .header__nav.active .nav__list {
         left: auto;
         right: 0;
@@ -1164,7 +1167,6 @@ img {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 50px 40px;
     }
 
     .title-h1 {
